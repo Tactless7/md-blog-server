@@ -4,7 +4,8 @@
   "description": "MD-Blog ---",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon js/server.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,9 @@
   },
   "homepage": "https://github.com/elgamine-dev/md-blog#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "fs-node": "^1.0.1",
     "jquery": "^3.1.1",
     "semantic-ui-css": "^2.2.4",
     "showdown": "^1.4.3"
