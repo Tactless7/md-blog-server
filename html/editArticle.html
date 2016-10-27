@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Editer un post</title>
+	<link rel="stylesheet" href="node_modules/semantic-ui-css/semantic.css">
+</head>
+<body>
+
+	<h1 class="ui centered header">Editer un post</h1>
+
+	<div class="ui centered grid">
+		<div class="ui row">
+			<input type="hidden" value="blabla">
+		</div>
+		<div class="ui row">
+			<input type="text" id="title">
+		</div>
+		<div class="ui row">
+			<textarea name="post" id="post" cols="100" rows="20"></textarea>
+		</div>
+		<div class="ui row">
+			<button id="save">Sauvegarder</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="js/getpost.js"></script>
+</body>
+</html>
