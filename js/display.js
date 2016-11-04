@@ -29,7 +29,7 @@
 		},
 		displayFile: function(data){
 			this.article = data;
-			app.transformMd(data);
+			this.transformMd(data);
 		},
 		transformMd: function(text){
 			var converter = new showdown.Converter(),

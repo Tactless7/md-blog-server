@@ -1,11 +1,11 @@
 (function(){
 	'use strict';
 	var app = {
-		menu: null,
+		menu: null, //tableau
 		config: {},
-		currentPath: null,
-		currentTitle: null,
-		currentContent: null,
+		currentPath: null, //path en cours de modification
+		currentTitle: null, // title en cours de modification
+		currentContent: null, // contenu en cours de modification
 		init: function(){
 			this.config = window.appConfig;
 			this.listeners();
@@ -13,16 +13,18 @@
 		},
 		listeners: function(){
 			$('#select').on('click', this.selectPost.bind(this));
+			$('form').on('submit', function(event){
+				event.preventDefault();
+				return false;
+			});
 			$('#save').on('click', this.saveChanges.bind(this));
 		},
+
 		get: function(path, callback){
 			$.ajax({
 				url: this.config.url + path,
 				type: 'GET',
 				success: callback.bind(this),
-				error: function(){
-					console.log('error JSON');
-				},
 			});
 		},
 		displaySelect: function(data){
@@ -36,17 +38,29 @@
 			this.currentTitle = $('option:selected').val();
 			this.get(this.currentPath, this.displayPost.bind(this));
 		},
-		getTitle: function(){
-
-		},
 		displayPost: function(data){
 			this.currentContent = data;
 			$('#editPost').val(this.currentContent);
 			$('#title').val(this.currentTitle);
 		},
 		saveChanges: function(){
-			console.log('Sauvegardons les changements !');
+			this.currentContent = $('#editPost').val();
+			this.currentTitle = $('#title').val();
+			this.postChanges('/edit', this.init.bind(this));
+		},
+		postChanges: function(path, callback){
+			$.ajax({
+				url: this.config.url + path,
+				type: 'POST',
+				data: {
+					path: this.currentPath,
+					title: this.currentTitle,
+					content: this.currentContent
+				},
+				success: callback.bind(this)
+			});
 		}
+
 	}
 
 	$(document).ready(function(){

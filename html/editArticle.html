@@ -12,23 +12,28 @@
 		<a class="item" href="/html/createArticle.html"><i class="add icon"></i>Create a post</a>
 		<a class="item" href="/html/editArticle.html"><i class="edit icon"></i>Edit a post</a>
 	</menu>
-	<div id="articles" class="ui vertical menu"></div>
 
 	
 	<div class="ui centered grid">
 		<div id="corpus" class="ui twelve wide middle aligned column">
 			<h1 class="ui centered header" data-title="">Edit a Post</h1>
-			<div class="ui row">
-				<select name="titles" id="titlesPost"></select>
-				<div class="ui basic button" id="select">Select</div>
-			</div>
-			<div class="ui row">
-				<input type="text" id="title">
-			</div>
-			<div class="ui row">
-				<textarea name="post" id="editPost" cols="100" rows="20"></textarea>
-			</div>
-			<div id="save" class="ui basic button">Save changes</div>
+			
+			<form>
+				<div class="ui row">
+					<select name="titles" id="titlesPost"></select>
+					<div class="ui basic button" id="select">Select</div>
+				</div>
+				<div class="ui row">
+					<input type="text" id="title" name="title">
+				</div>
+				<div class="ui row">
+					<textarea name="post" id="editPost" cols="100" rows="20"></textarea>
+				</div>
+				<button id="save" class="ui green labeled icon button">
+					<i class="edit icon"></i>
+					<label for="save">Save changes</label>
+				</button>
+			</form>
 		</div>
 	</div>
 
@@ -40,7 +45,7 @@
 	</script>
 	<script src="/node_modules/jquery/dist/jquery.js"></script>
 	<script src="/node_modules/showdown/dist/showdown.js"></script>
-	<script src="/js/display.js"></script>
+	<!-- <script src="/js/display.js"></script> -->
 	<script src="/js/edit.js"></script>
 </body>
 </html>

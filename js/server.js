@@ -1,14 +1,44 @@
-var express = require('express'); 
-var app = express();
+/*Déclaration de variables nécessaires*/
+var express = require('express');
+var app = express(); 
+var bodyParser = require('body-parser');
+var fs = require('fs');
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+var urlencodedParser = bodyParser.urlencoded({ extended: false});
+
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
 });
 
+// app.get('/', function (req, res) { //Lorsque tu te rends sur la page d'accueil (/ => racine)
+//   res.send('Hello World!');
+// });
+
+app.post('/edit', urlencodedParser, function(req, res){ // Quand post depuis editArticle, alors traite les données envoyées
+	/* Ici je traite les données du post fait depuis editArticle*/
+	console.log(req.body);
+	
+	// fs.writeFile(nomDuFichier, 'utf8', editFile(/*arg1*/, /*arg2*/){
+
+	// })
+});
+
+function editFile(err, data){
+
+}
+
+
+
+
+/*Ecoute le port 2605*/
 app.listen(2605, function () {
   console.log('Your app is listening on port 2605!');
 });
 
+/* Dossiers accessibles depuis l'extérieur*/
 app.use(express.static('articles'));
 app.use(express.static('menu'));
 app.use(express.static('html'));
+app.use(express.static('node_modules'));

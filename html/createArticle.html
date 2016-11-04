@@ -12,19 +12,25 @@
 		<a class="item" href="/html/createArticle.html"><i class="add icon"></i>Create a post</a>
 		<a class="item" href="/html/editArticle.html"><i class="edit icon"></i>Edit a post</a>
 	</menu>
-	<div id="articles" class="ui vertical menu"></div>
+	
 
 	
 	<div class="ui centered grid">
 		<div id="corpus" class="ui twelve wide middle aligned column">
 			<h1 class="ui centered header">Create a Post</h1>
-			<div class="ui row">
-				<input type="text" id="title">
-			</div>
-			<div class="ui row">
-				<textarea name="post" id="post" cols="100" rows="20"></textarea>
-			</div>
-			<div id="save" class="ui basic button">Create</div>
+			<form action="/createArticle" method="post">
+				<div class="ui row">
+					<label for="newTitle">Title</label>
+					<input type="text" id="newTitle" name="newTitle">
+				</div>
+				<div class="ui row">
+					<textarea name="newPost" id="newPost" cols="100" rows="20"></textarea>
+				</div>
+				<div id="create" class="ui labeled icon green button">
+					<i class="add icon"></i>
+					<label for="create">Create</label>
+				</div>
+			</form>
 		</div>
 	</div>
 
@@ -36,6 +42,7 @@
 	</script>
 	<script src="/node_modules/jquery/dist/jquery.js"></script>
 	<script src="/node_modules/showdown/dist/showdown.js"></script>
-	<script src="/js/display.js"></script>
+	<!-- <script src="/js/display.js"></script> -->
+	<script type="text/javascript" src="../js/create.js"></script>
 </body>
 </html>
