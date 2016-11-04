@@ -18,16 +18,13 @@ app.use(function(req, res, next) {
 
 app.post('/edit', urlencodedParser, function(req, res){ // Quand post depuis editArticle, alors traite les données envoyées
 	/* Ici je traite les données du post fait depuis editArticle*/
-	console.log(req.body);
-	
-	// fs.writeFile(nomDuFichier, 'utf8', editFile(/*arg1*/, /*arg2*/){
-
-	// })
+	fs.writeFile('articles' + req.body.path, req.body.content, 'utf8', function(err, data){
+		if(err){
+			return console.log(err);
+		}
+		return console.log('fichier écrasé');
+	});
 });
-
-function editFile(err, data){
-
-}
 
 
 
