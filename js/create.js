@@ -10,24 +10,31 @@
 			this.listeners();
 		},
 		listeners: function(){
-			$('#create').on('click', createArticle.bind(this));
+			$('#create').on('click', this.createArticle.bind(this));
 		},
-		post: function(){
+		post: function(path){
 			$.ajax({
-				url: this.config.url,
+				url: this.config.url + path,
 				type: 'POST',
 				success: function(){
 					console.log('Données envoyées au serveur');
 				},
-				error: 'error post',
-				datatype : 'html',
-				data : {title: this.newTitle, content: this.newPost, path: this.newPath}
+				data: {
+					title: this.newTitle,
+					content: this.newPost
+				}
 			});
 		},
 		createArticle: function(){
-			this.newTitle = $('newTitle').val();
+			console.log('je clique');
+			this.newTitle = $('#newTitle').val();
 			this.newPost = $('#newPost').val();
-			this.post();
+			this.post('/create');
 		},
 	}
+
+	$(document).ready(function(){
+		app.init();
+	});
+
 })();

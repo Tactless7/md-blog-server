@@ -21,7 +21,7 @@
 			<form action="/createArticle" method="post">
 				<div class="ui row">
 					<label for="newTitle">Title</label>
-					<input type="text" id="newTitle" name="newTitle">
+					<input type="text" id="newTitle" name="newTitle" min="3" max="80">
 				</div>
 				<div class="ui row">
 					<textarea name="newPost" id="newPost" cols="100" rows="20"></textarea>
@@ -43,6 +43,6 @@
 	<script src="/node_modules/jquery/dist/jquery.js"></script>
 	<script src="/node_modules/showdown/dist/showdown.js"></script>
 	<!-- <script src="/js/display.js"></script> -->
-	<script type="text/javascript" src="../js/create.js"></script>
+	<script type="text/javascript" src="/js/create.js"></script>
 </body>
 </html>
